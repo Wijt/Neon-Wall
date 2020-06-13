@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>İyi Bayramlar!</title>
+	<meta property="og:site_name" content="İyi Bayramlar!">
+	<meta property="og:title" content="İyi Bayramlar!" />
+	<meta property="og:description" content="Herkesin bayramını kutlarım!" />
+	<meta property="og:image" itemprop="image" content="prewiev.png">
+	<meta property="og:type" content="website" />
+	<style type="text/css">
+			/*-- Base Styles --*/
+		@font-face {
+			font-family: vibur;
+			src: url(data/fonts/Vibur-Regular.otf);
+		}
+
+		html,
+		body {
+			margin: 0;
+			height: 100%;
+		}
+
+		html {
+			font-size: 16px;
+		}
+
+		body {
+			font-family: "vibur", cursive;
+			font-size: 1rem;
+			background-image: url("data/imgs/bg.jpg");
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-color: #141414;
+		}
+
+		/*-- Sign Styles --*/
+
+		.sign {
+			min-height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.sign__word {
+				font-size: 5.6rem;
+				text-align: center;
+				line-height: 1;
+				color: #c6e2ff;
+				animation: neon 0.08s ease-in-out infinite alternate;
+			}
+
+		/*-- Animation Keyframes --*/
+
+		@keyframes neon {
+			from {
+				text-shadow: 0 0 6px rgba(202, 228, 225, 0.92),
+					0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52),
+					0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78),
+					0 0 54px rgba(30, 132, 242, 0.92);
+			}
+			to {
+				text-shadow: 0 0 6px rgba(202, 228, 225, 0.98),
+					0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58),
+					0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88),
+					0 0 60px rgba(30, 132, 242, 1);
+			}
+		}
+
+		.kucuk {
+			font-size: 35px;
+			position: fixed;
+			bottom: 65px;
+			right: 65px;
+		}
+		.conteynir{
+			position: absolute;
+			width: 175px;
+			height: 75px;
+			padding:15px;
+			background: #F4EED8;
+			margin: 30px;
+			font-family: "comic sans ms";
+		}
+		.gorunmez{
+			display: none;
+		}
+		#buton{
+			cursor: pointer;
+			background: #009157;
+			width: 130px;
+			height: 30px;
+			line-height: 30px;
+			border-radius: 10px;
+			padding-left: 6px;
+			margin-left: 11%;
+			margin-top: 7px;
+		}
+		#buton:hover{
+			-moz-box-shadow:    inset 0 0 10px #000000;
+		   -webkit-box-shadow: inset 0 0 10px #000000;
+		   box-shadow:         inset 0 0 10px #000000;
+		}
+		#buton:active{
+			margin-top: 10px;
+			margin-left: 13%;
+		}
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var bool=true;
+			$(document).on('click','#buton',function(e) {
+				var yazi=$("#yazilan").val();
+				$(".sign").html("");
+				$(".sign").append("<span class=\"sign__word\">"+yazi+"</span>");
+				$(".conteynir").html("");
+				$(".conteynir").append("<span style=\"margin-top: -10px;position: absolute;text-align: center;width: 180px;\">İhtiyacın olursa buradayım. Mouseyi üzerime getirmen yeter.</span>")
+				$(".conteynir").animate({opacity:0}, 3000,function() {
+					bool=false;
+				});
+			});
+			$(document).on('mouseenter','.conteynir',function(e) {
+				if(!bool){
+					$(".conteynir").animate({opacity:1}, 1000);
+					$(".conteynir").html("");
+					$(".conteynir").html("<span>Dilediğini yaz!</span><input type=\"text\" id=\"yazilan\"><div id=\"buton\">Duvara yerleştir</div>");
+					bool=true;
+				}
+			});
+	</script>
+</head>
+<body>	
+	<div class="conteynir" style="opacity: 1">
+		<span>Dilediğini yaz!</span>
+		<input type="text" id="yazilan">
+		<div id="buton">Duvara yerleştir</div>
+	</div>
+	<div class="sign">
+		<span class="sign__word">HOŞGELDİNİZ<center> <div style="transform: rotate(90deg);margin-left: -40px;">:)</div></center></span>
+	</div>
+	<div class="furkan sign__word kucuk">Furkan Kaya</div>
+</body>
+</html>
